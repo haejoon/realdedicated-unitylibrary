@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultToastGUIStyle.cs" />
+    <Compile Include="EpicToast.cs" />
     <Compile Include="FadingToast.cs" />
     <Compile Include="Toast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
