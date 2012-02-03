@@ -2,6 +2,9 @@
 
 namespace RealDedicated_UnityGameLibrary
 {
+    /// <summary>
+    /// A toast is a message displayed through the GUI that eventually dies.
+    /// </summary>
     public class Toast : MonoBehaviour
     {
         #region Members
