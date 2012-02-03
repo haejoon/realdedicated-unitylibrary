@@ -68,12 +68,7 @@ namespace RealDedicated_UnityGameLibrary
         }
         #endregion
 
-        #region Methods
-        public void BeginDisplayingToast()
-        {
-            this.displayed = true;
-        }
-
+        #region Methods     
         public void OnGUI()
         {
             if (this.displayed)
@@ -100,6 +95,76 @@ namespace RealDedicated_UnityGameLibrary
             Vector2 textMoveVector = this.TextDirection * this.TextSpeed;
 
             this.TextPosition += textMoveVector;
+        }
+
+
+        #region Offsets
+        protected void CalculateAnchorOffsets()
+        {
+            switch (this.TextGUIStyle.alignment)
+            {
+                case TextAnchor.UpperLeft:
+                    //DO NOTHING!
+                    break;
+                case TextAnchor.MiddleLeft:
+                    this.OffsetUp_Half();
+                    break;
+                case TextAnchor.LowerLeft:
+                    this.OffsetUp_Full();
+                    break;
+                case TextAnchor.LowerRight:
+                    this.OffsetRight_Full();
+                    break;
+                case TextAnchor.MiddleRight:
+                    this.OffsetUp_Half();
+                    this.OffsetRight_Full();
+                    break;
+                case TextAnchor.UpperRight:
+                    this.OffsetRight_Full();
+                    break;
+                case TextAnchor.LowerCenter:
+                    this.OffsetUp_Full();
+                    this.OffsetRight_Half();
+                    break;
+                case TextAnchor.MiddleCenter:
+                    this.OffsetUp_Half();
+                    this.OffsetRight_Half();
+                    break;
+                case TextAnchor.UpperCenter:
+                    this.OffsetRight_Half();
+                    break;
+            }
+        }
+
+        private void OffsetRight_Full()
+        {
+            this.textPosition.x -= this.TextRect.width;
+        }
+
+        private void OffsetRight_Half()
+        {
+            this.textPosition.x -= (this.TextRect.width/2);
+
+        }
+
+        private void OffsetUp_Full()
+        {
+            this.textPosition.y -= this.TextRect.height;
+        }
+
+        private void OffsetUp_Half()
+        {
+            this.textPosition.y -= (this.TextRect.height / 2);
+        }
+        #endregion
+        #endregion
+
+        #region Events
+        public void BeginDisplayingToast()
+        {
+            this.displayed = true;
+
+            this.CalculateAnchorOffsets();
         }
         #endregion
     }
