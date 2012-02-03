@@ -18,63 +18,88 @@ namespace RealDedicated_UnityGameLibrary
         }
 
         #region Constructors
-        public static void CreateToast()
+
+        #region Static
+        public static void CreateStaticToast(string toastText)
         {
-            BuildToast(defaultText, defaultPosition, defaultDirection, defaultSpeed, defaultStyle, defaultLifetime);
+            BuildToast(toastText, defaultPosition, Vector2.zero, defaultSpeed, defaultStyle, defaultLifetime);
         }
 
-        public static void CreateToast(string toastText)
+        public static void CreateStaticToast(string toastText, float toastLifetime)
         {
-            BuildToast(toastText, defaultPosition, defaultDirection, defaultSpeed, defaultStyle, defaultLifetime);
+            BuildToast(toastText, defaultPosition, Vector2.zero, defaultSpeed, defaultStyle, toastLifetime);
         }
 
-        public static void CreateToast(string toastText, float toastLifetime)
+        public static void CreateStaticToast(string toastText, Vector2 toastPosition)
+        {
+            BuildToast(toastText, toastPosition, Vector2.zero, defaultSpeed, defaultStyle, defaultLifetime);
+        }
+
+        public static void CreateStaticToast(string toastText, Vector2 toastPosition, float toastLifetime)
+        {
+            BuildToast(toastText, toastPosition, Vector2.zero, defaultSpeed, defaultStyle, toastLifetime);
+        }
+
+        public static void CreateStaticToast(string toastText, Vector2 toastPosition, GUIStyle toastStyle)
+        {
+            BuildToast(toastText, toastPosition, Vector2.zero, defaultSpeed, toastStyle, defaultLifetime);
+        }
+
+        public static void CreateStaticToast(string toastText, Vector2 toastPosition, GUIStyle toastStyle, float toastLifetime)
+        {
+            BuildToast(toastText, toastPosition, Vector2.zero, defaultSpeed, toastStyle, toastLifetime);
+        }
+        #endregion
+
+        #region Moving
+        public static void CreateMovingToast(string toastText, float toastLifetime)
         {
             BuildToast(toastText, defaultPosition, defaultDirection, defaultSpeed, defaultStyle, toastLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition)
         {
             BuildToast(toastText, toastPosition, defaultDirection, defaultSpeed, defaultStyle, defaultLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, float toastLifetime)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, float toastLifetime)
         {
             BuildToast(toastText, toastPosition, defaultDirection, defaultSpeed, defaultStyle, toastLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection)
         {
             BuildToast(toastText, toastPosition, toastDirection, defaultSpeed, defaultStyle, defaultLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastLifetime)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastLifetime)
         {
             BuildToast(toastText, toastPosition, toastDirection, defaultSpeed, defaultStyle, toastLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, double toastSpeed)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, double toastSpeed)
         {
             BuildToast(toastText, toastPosition, toastDirection, (float)toastSpeed, defaultStyle, defaultLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, float toastLifetime)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, float toastLifetime)
         {
             BuildToast(toastText, toastPosition, toastDirection, toastSpeed, defaultStyle, toastLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, GUIStyle toastStyle)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, GUIStyle toastStyle)
         {
             BuildToast(toastText, toastPosition, toastDirection, toastSpeed, toastStyle, defaultLifetime);
         }
 
-        public static void CreateToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, GUIStyle toastStyle, float toastLifetime)
+        public static void CreateMovingToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, GUIStyle toastStyle, float toastLifetime)
         {
             BuildToast(toastText, toastPosition, toastDirection, toastSpeed, toastStyle, toastLifetime);
         }
         #endregion
+        #endregion
 
-        #region Methods      
+        #region Methods
         private static void BuildToast(string toastText, Vector2 toastPosition, Vector2 toastDirection, float toastSpeed, GUIStyle toastStyle, float toastLifetime)
         {
             GameObject tempToastObject = new GameObject();
