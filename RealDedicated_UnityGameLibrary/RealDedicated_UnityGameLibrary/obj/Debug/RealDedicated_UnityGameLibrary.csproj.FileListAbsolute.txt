@@ -1,1 +1,6 @@
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\RealDedicated_UnityGameLibrary.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\RealDedicated_UnityGameLibrary.pdb
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\UnityEngine.dll
 E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.csprojResolveAssemblyReference.cache
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.pdb

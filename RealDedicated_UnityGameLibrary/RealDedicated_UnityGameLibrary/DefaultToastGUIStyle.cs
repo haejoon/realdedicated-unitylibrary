@@ -15,6 +15,8 @@ namespace RealDedicated_UnityGameLibrary
         {
             if(!this.destroyOnLoadLevel)
                 DontDestroyOnLoad(this.gameObject);
+
+            ToastBuilder.DefaultGUIStyle = this.defaultToastGUIStyle;
         }
 
     }
