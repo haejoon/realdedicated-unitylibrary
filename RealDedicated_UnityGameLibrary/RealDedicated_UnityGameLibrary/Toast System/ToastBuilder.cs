@@ -18,7 +18,6 @@ namespace RealDedicated_UnityGameLibrary
         }
 
         #region Constructors
-
         #region Static
         public static void CreateStaticToast(string toastText)
         {
