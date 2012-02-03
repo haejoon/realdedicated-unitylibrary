@@ -55,7 +55,7 @@ namespace RealDedicated_UnityGameLibrary
                 tempRect.x = this.TextPosition.x;
                 tempRect.y = this.TextPosition.y;
 
-                Vector2 tempSize = GUI.skin.label.CalcSize(new GUIContent(this.TextToDisplay));
+                Vector2 tempSize = this.TextGUIStyle.CalcSize(new GUIContent(this.TextToDisplay));
 
                 tempRect.width = tempSize.x;
                 tempRect.height = tempSize.y;
@@ -71,11 +71,18 @@ namespace RealDedicated_UnityGameLibrary
             this.displayed = true;
         }
 
-        public void FixedUpdate()
+        public void OnGUI()
         {
             if (this.displayed)
             {
                 this.DisplayToast();
+            }
+        }
+
+        public void FixedUpdate()
+        {
+            if (this.displayed)
+            {
                 this.MoveToast();
             }
         }
