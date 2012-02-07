@@ -100,6 +100,8 @@ namespace RealDedicated_UnityGameLibrary
             {
                 this.DisplayCurrentPage();
             }
+            else
+                this.HideCurrentPage();
         }
 
         private void DisplayCurrentPage()
@@ -107,6 +109,18 @@ namespace RealDedicated_UnityGameLibrary
             if (this.CurrentPage != null)
             {
                 if (!this.CurrentPage.IsVisible)
+                {
+                    this.CurrentPage.ToggleVisibilty();
+                }
+                //Seriously, that's it... The page should handle itself. You just have to make sure it's visible!
+            }
+        }
+
+        private void HideCurrentPage()
+        {
+            if (this.CurrentPage != null)
+            {
+                if (this.CurrentPage.IsVisible)
                 {
                     this.CurrentPage.ToggleVisibilty();
                 }
