@@ -10,6 +10,8 @@ namespace RealDedicated_UnityGameLibrary
 
         [UnityEngine.SerializeField]
         private string pageName = "";
+
+        private GUI_PageDisplay pageDisplayController;
         #endregion
 
         #region Properties
@@ -47,12 +49,28 @@ namespace RealDedicated_UnityGameLibrary
         #region Methods
         public void Awake()
         {
+            
             this.GUI_PageAwake();
+            this.GetPageDisplayController();
         }
 
         public virtual void GUI_PageAwake()
         {
 
+        }
+
+        public virtual void GetPageDisplayController()
+        {
+            GUI_PageDisplay tempPageDisplayer = GameObject.FindObjectOfType(typeof(GUI_PageDisplay)) as GUI_PageDisplay;
+
+            if (tempPageDisplayer != null)
+            {
+                this.pageDisplayController = tempPageDisplayer;
+            }
+            else
+            {
+                Debug.Log("Could not find GUI_PageDisplay, GUI_Pages will not be able to be displayed");
+            }
         }
 
         public void OnGUI()
