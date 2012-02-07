@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RealDedicated_UnityGameLibrary
 {
-    class GUI_PageDisplay : MonoBehaviour
+    public class GUI_PageDisplay : MonoBehaviour
     {
         #region Members
         [UnityEngine.SerializeField]

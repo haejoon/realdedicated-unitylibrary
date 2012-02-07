@@ -2,7 +2,7 @@
 
 namespace RealDedicated_UnityGameLibrary
 {
-    class GUI_Page : MonoBehaviour
+    public class GUI_Page : MonoBehaviour
     {
         #region Members
         public enum VisibleState { Hidden, Visible }
