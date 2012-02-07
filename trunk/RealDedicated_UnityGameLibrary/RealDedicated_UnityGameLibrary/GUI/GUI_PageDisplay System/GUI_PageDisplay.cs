@@ -61,7 +61,7 @@ namespace RealDedicated_UnityGameLibrary
         #region Methods
         public void Awake()
         {
-            if (this.PagesToDisplay.Count > 1)
+            if (this.PagesToDisplay.Count > 0)
             {
                 this.CurrentPage = this.PagesToDisplay[0];
             }
