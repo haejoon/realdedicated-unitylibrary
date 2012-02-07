@@ -87,7 +87,7 @@ namespace RealDedicated_UnityGameLibrary
 
         protected void DisplayToast()
         {
-            GUI.Label(this.TextRect, new GUIContent(this.TextToDisplay), this.TextGUIStyle);
+            UnityEngine.GUI.Label(this.TextRect, new GUIContent(this.TextToDisplay), this.TextGUIStyle);
         }
 
         protected void MoveToast()
