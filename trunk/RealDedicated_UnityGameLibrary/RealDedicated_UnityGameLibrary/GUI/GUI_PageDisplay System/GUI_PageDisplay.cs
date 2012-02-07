@@ -67,6 +67,17 @@ namespace RealDedicated_UnityGameLibrary
             }
         }
 
+        private void SetPageNames()
+        {
+            for(int i = 0; i < this.PagesToDisplay.Count; i++)
+            {
+                if (this.PagesToDisplay[i].PageName == "")
+                {
+                    this.PagesToDisplay[i].PageName = "Page #: " + i.ToString();
+                }
+            }
+        }
+
         public void Update()
         {
             this.CheckForInput();
@@ -111,13 +122,31 @@ namespace RealDedicated_UnityGameLibrary
         #endregion
 
         #region Events
+        /// <summary>
+        /// Manually set a current page by providing a GUIPage, does not have to be in the list of pages
+        /// </summary>
+        /// <param name="newCurrentPage"></param>
         public void SetCurrentPage(GUI_Page newCurrentPage)
         {
-            if (this.PagesToDisplay.Contains(newCurrentPage))
+            if (newCurrentPage != null)
             {
+                //Turn the old page off
                 this.TogglePageVisibility(this.currentPage);
                 this.currentPage = newCurrentPage;
+                //Turn the new page on
                 this.TogglePageVisibility(newCurrentPage);
+            }
+        }
+
+        public void SetCurrentPage(string pageName)
+        {
+            foreach (GUI_Page childGUIPage in this.PagesToDisplay)
+            {
+                if (childGUIPage.PageName == pageName)
+                {
+                    this.SetCurrentPage(childGUIPage);
+                    break;
+                }
             }
         }
         #endregion

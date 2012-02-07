@@ -8,6 +8,8 @@ namespace RealDedicated_UnityGameLibrary
         public enum VisibleState { Hidden, Visible }
         private VisibleState visibleState;
 
+        [UnityEngine.SerializeField]
+        private string pageName = "";
         #endregion
 
         #region Properties
@@ -33,6 +35,12 @@ namespace RealDedicated_UnityGameLibrary
                 else
                     this.visibleState = VisibleState.Visible;
             }
+        }
+
+        public string PageName
+        {
+            get { return this.pageName; }
+            set { this.pageName = value; }
         }
         #endregion
 
