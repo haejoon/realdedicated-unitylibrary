@@ -70,7 +70,7 @@ namespace RealDedicated_UnityGameLibrary
         /// <returns></returns>
         public virtual StyleSheet RetrieveStyleSheet(string nameOfStyleSheet)
         {
-            StyleSheet tempStyleSheet = new StyleSheet();
+            StyleSheet tempStyleSheet = null;
 
             foreach (StyleSheet childStyleSheet in this.activeStyleSheets)
             {
