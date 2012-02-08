@@ -44,6 +44,12 @@ namespace RealDedicated_UnityGameLibrary
             get { return this.pageName; }
             set { this.pageName = value; }
         }
+
+        public GUI_PageDisplay PageDisplayController
+        {
+            get { return this.pageDisplayController; }
+            set { this.pageDisplayController = value; }
+        }
         #endregion
 
         #region Methods
