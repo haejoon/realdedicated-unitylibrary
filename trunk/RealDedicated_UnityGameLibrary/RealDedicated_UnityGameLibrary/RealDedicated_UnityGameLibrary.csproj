@@ -47,13 +47,15 @@
   <ItemGroup>
     <Compile Include="GUI\GUI_PageDisplay System\GUI_Page.cs" />
     <Compile Include="GUI\GUI_PageDisplay System\GUI_PageDisplay.cs" />
-    <Compile Include="GUI\GUI_PageDisplay System\Smart.cs" />
+    <Compile Include="GUI\Style Sheet\StyleSheet.cs" />
+    <Compile Include="GUI\Style Sheet\StyleSheetReference.cs" />
     <Compile Include="GUI\Toast System\DefaultToastGUIStyle.cs" />
     <Compile Include="GUI\Toast System\FadingToast.cs" />
     <Compile Include="GUI\Toast System\Toast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\Toast System\ToastBuilder.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
