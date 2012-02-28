@@ -88,7 +88,6 @@ namespace RealDedicated_UnityGameLibrary
             if (Input.GetButtonDown(this.PageDisplayToggleButton))
             {
                 this.DisplayingPages = !this.DisplayingPages;
-
             }
         }
 
@@ -136,6 +135,11 @@ namespace RealDedicated_UnityGameLibrary
         #endregion
 
         #region Events
+        public void ToggleGUIPageDisplay(bool pageDisplayOn)
+        {
+            this.DisplayingPages = pageDisplayOn;
+        }
+
         /// <summary>
         /// Manually set a current page by providing a GUIPage, does not have to be in the list of pages
         /// </summary>
