@@ -1,28 +1,30 @@
 using UnityEngine;
-using System.Collections;
 
-public class AnimationSpeedController : MonoBehaviour 
+namespace RealDedicated_UnityGameLibrary
 {
-    public float animationSpeed = 1;
-
-    public bool randomSpeed = false;
-    public Vector2 randomSpeedRange = new Vector2(.5f, 3);
-
-    private void Start()
+    public class AnimationSpeedController : MonoBehaviour
     {
-        if (this.animation.clip != null)
+        public float animationSpeed = 1;
+
+        public bool usingRandomSpeed = false;
+        public Vector2 randomSpeedRange = new Vector2(.5f, 3);
+
+        private void Start()
         {
-            if (!this.randomSpeed)
-                this.animation[this.animation.clip.name].speed = this.animationSpeed;
-            else
-                this.animation[this.animation.clip.name].speed = Random.Range(randomSpeedRange.x, randomSpeedRange.y);
+            if (this.animation.clip != null)
+            {
+                if (!this.usingRandomSpeed)
+                    this.animation[this.animation.clip.name].speed = this.animationSpeed;
+                else
+                    this.animation[this.animation.clip.name].speed = Random.Range(randomSpeedRange.x, randomSpeedRange.y);
 
-            this.RemoveThisComponent();
+                this.RemoveThisComponent();
+            }
         }
-    }
 
-    private void RemoveThisComponent()
-    {
-        Destroy(this);
+        private void RemoveThisComponent()
+        {
+            Destroy(this);
+        }
     }
 }
