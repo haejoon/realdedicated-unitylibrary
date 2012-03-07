@@ -10,7 +10,6 @@ namespace RealDedicated_UnityGameLibrary
 		 public static float gridX = 1.0f;
 		 public static float gridY = 1.0f;
 		 public static float gridZ = 1.0f;
-		 public static float rotation = 15;
 		 #endregion
 		
 	    [MenuItem ("Window/Snap to Grid %t")]
@@ -26,10 +25,9 @@ namespace RealDedicated_UnityGameLibrary
 		void OnGUI()
         {
 			GUILayout.BeginVertical();
-				GUILayout.Label("Move X: " + SnapToGrid.gridX);
-				GUILayout.Label("Move Y: " + SnapToGrid.gridY);
-				GUILayout.Label("Move Z: " + SnapToGrid.gridZ);
-				GUILayout.Label("Rotate: " + SnapToGrid.rotation);
+				SnapToGrid.gridX =  float.Parse(GUILayout.TextField(SnapToGrid.gridX.ToString()));
+				SnapToGrid.gridY =  float.Parse(GUILayout.TextField(SnapToGrid.gridY.ToString()));
+				SnapToGrid.gridZ =  float.Parse(GUILayout.TextField(SnapToGrid.gridZ.ToString()));
 				this.DrawSnapButton();
 			GUILayout.EndVertical();
 		}
@@ -44,6 +42,8 @@ namespace RealDedicated_UnityGameLibrary
 		
 		private static void SnapObjects()
 		{
+			Undo.RegisterSceneUndo("GridSnap");
+			
 			Transform[] transforms = Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.OnlyUserModifiable);
 			
 			foreach (Transform transform in transforms)
@@ -53,13 +53,6 @@ namespace RealDedicated_UnityGameLibrary
 	            newPosition.y = Mathf.Round(newPosition.y / gridY) * gridY;
 	            newPosition.z = Mathf.Round(newPosition.z / gridZ) * gridZ;
 	            transform.position = newPosition;
-				
-				Quaternion newRotation = transform.rotation;
-				newRotation.x = Mathf.Round(newRotation.x / rotation) * rotation;
-				newRotation.y = Mathf.Round(newRotation.y / rotation) * rotation;
-				newRotation.z = Mathf.Round(newRotation.z / rotation) * rotation;
-				newRotation.w = Mathf.Round(newRotation.w / rotation) * rotation;
-				transform.rotation = newRotation;
 	        }
 		}
 	    
