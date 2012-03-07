@@ -28,6 +28,8 @@ namespace RealDedicated_UnityGameLibrary
                 {
                     obj.transform.parent = parentObject.transform;
                 }
+
+                Selection.activeGameObject = parentObject;
             }
         }
     }
