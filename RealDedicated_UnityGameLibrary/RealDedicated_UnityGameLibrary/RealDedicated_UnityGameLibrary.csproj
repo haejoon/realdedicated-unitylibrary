@@ -77,7 +77,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\Toast System\ToastBuilder.cs" />
     <Compile Include="Editor\AutoSaver.cs" />
-    <Compile Include="Editor\SnapToGrid.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
