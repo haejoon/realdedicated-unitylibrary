@@ -24,6 +24,7 @@ namespace RealDedicated_UnityGameLibrary
         static void ShowWindow()
         {
             SceneSwapWindow window = (SceneSwapWindow)EditorWindow.GetWindow(typeof(SceneSwapWindow));
+			window.Show();
         }
 
         private static void RefreshScenes()
@@ -151,6 +152,12 @@ namespace RealDedicated_UnityGameLibrary
         {
             RefreshScenes();
         }
+		
+		// If Window Got Focus
+	    void OnFocus()
+	    {
+	        RefreshScenes();
+	    }
         #endregion
     }
 }
