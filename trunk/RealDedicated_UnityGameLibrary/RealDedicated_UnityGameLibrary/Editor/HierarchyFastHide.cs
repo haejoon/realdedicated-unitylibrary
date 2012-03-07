@@ -33,7 +33,7 @@ public class HierarchyFastHide : EditorWindow {
     private MeshRenderer[] mr;
 
     // Add menu named "Hierarchy Plus" to the Window menu
-    [MenuItem( "Window/Hierarchy Fast Hide %H" )]
+    [MenuItem( "Window/Hierarchy Fast Hide" )]
 	static void Init () 
 	{
 		// Get existing open window or if none, make a new one:
