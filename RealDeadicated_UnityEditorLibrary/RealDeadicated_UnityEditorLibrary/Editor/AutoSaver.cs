@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-namespace RealDedicated_UnityGameLibrary
+namespace RealDedicated_UnityEditorLibrary
 {
 	public class AutoSaver : EditorWindow 
 	{

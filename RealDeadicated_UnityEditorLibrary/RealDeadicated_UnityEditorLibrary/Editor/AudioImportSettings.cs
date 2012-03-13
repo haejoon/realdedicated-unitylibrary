@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace RealDedicated_UnityGameLibrary
+namespace RealDedicated_UnityEditorLibrary
 {
     public class AudioImportSettings : AssetPostprocessor
     {

@@ -1,0 +1,8 @@
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\bin\Debug\RealDeadicated_UnityEditorLibrary.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\bin\Debug\RealDeadicated_UnityEditorLibrary.pdb
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\bin\Debug\UnityEditor.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\bin\Debug\UnityEngine.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\bin\Debug\nunit.framework.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\obj\Debug\RealDeadicated_UnityEditorLibrary.csprojResolveAssemblyReference.cache
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\obj\Debug\RealDeadicated_UnityEditorLibrary.dll
+E:\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDeadicated_UnityEditorLibrary\RealDeadicated_UnityEditorLibrary\obj\Debug\RealDeadicated_UnityEditorLibrary.pdb
