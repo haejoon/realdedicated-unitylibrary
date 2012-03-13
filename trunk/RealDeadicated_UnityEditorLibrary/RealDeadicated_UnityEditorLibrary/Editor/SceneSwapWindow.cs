@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 
-namespace RealDedicated_UnityGameLibrary
+namespace RealDedicated_UnityEditorLibrary
 {
     public class SceneSwapWindow : EditorWindow
     {

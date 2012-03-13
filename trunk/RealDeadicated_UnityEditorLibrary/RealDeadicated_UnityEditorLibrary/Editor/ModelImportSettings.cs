@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEditor;
 
-namespace RealDedicated_UnityGameLibrary
+namespace RealDedicated_UnityEditorLibrary
 {
     public class ModelImportSettings : AssetPostprocessor
     {
