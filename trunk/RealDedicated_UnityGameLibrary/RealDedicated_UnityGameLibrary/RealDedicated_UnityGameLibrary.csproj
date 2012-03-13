@@ -53,17 +53,6 @@
     <Compile Include="BasicMouseClicks\MouseClick_LoadScene.cs" />
     <Compile Include="BasicMouseClicks\MouseClick_OpenURL.cs" />
     <Compile Include="BasicMouseClicks\MouseClick_QuitApplication.cs" />
-    <Compile Include="Editor\AudioImportSettings.cs" />
-    <Compile Include="Editor\EditorGroupObjects.cs" />
-    <Compile Include="Editor\EditorMassAddColliders.cs" />
-    <Compile Include="Editor\EditorRemoveColliders.cs" />
-    <Compile Include="Editor\EditorRemoveParents.cs" />
-    <Compile Include="Editor\EditorZeroObjects.cs" />
-    <Compile Include="Editor\HierarchyFastHide.cs" />
-    <Compile Include="Editor\LightmapImportSettings.cs" />
-    <Compile Include="Editor\ModelImportSettings.cs" />
-    <Compile Include="Editor\SceneSwapWindow.cs" />
-    <Compile Include="Editor\TextureImportSettings.cs" />
     <Compile Include="General\Timer System\Timer.cs" />
     <Compile Include="General\Timer System\TimerBuilder.cs" />
     <Compile Include="GUI\GUI_PageDisplay System\GUI_Page.cs" />
@@ -78,7 +67,6 @@
     <Compile Include="ObjectControl\ObjectDestroyer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\Toast System\ToastBuilder.cs" />
-    <Compile Include="Editor\AutoSaver.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
