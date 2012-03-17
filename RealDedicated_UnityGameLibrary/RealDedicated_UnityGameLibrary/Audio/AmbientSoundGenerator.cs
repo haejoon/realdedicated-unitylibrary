@@ -24,8 +24,9 @@ namespace RealDedicated_UnityGameLibrary.Audio
         [UnityEngine.SerializeField]
         private AudioClip oneShotSound = null;
 
-        [UnityEngine.SerializeField]
-        private Collider triggerArea = null;
+        // Not sure what im doing with this.
+        //[UnityEngine.SerializeField]
+        //private Collider triggerArea = null;
 
         [UnityEngine.SerializeField]
         private static int onEnterSoundCount = 0;
@@ -50,13 +51,14 @@ namespace RealDedicated_UnityGameLibrary.Audio
         private bool hasOnStay { get; set; }
 
         [UnityEngine.SerializeField]
-        private float triggerDelay = 0.0f;
-        
-        [UnityEngine.SerializeField]
-        private string EndTriggerSection = "";
+        private bool useTriggerDelay { get; set; }
 
         [UnityEngine.SerializeField]
-        private float actionTimer = 0.0f;
+        private float triggerDelay = 0.0f;
+              
+        // Not sure what im doing with this.
+        //[UnityEngine.SerializeField]
+        //private float actionTimer = 0.0f;
 
         [UnityEngine.SerializeField]
         private bool actionPlay { get; set; }        
@@ -72,7 +74,14 @@ namespace RealDedicated_UnityGameLibrary.Audio
 
         private float startTime = 0.0f;
 
+        private float triggerTime = 0.0f;
+
+        private bool triggerCalled = false;
+
         private AudioSource audio;
+
+        private AudioClip[] current;
+
         private void Create() { }
 
         private void Start() { }
@@ -100,6 +109,8 @@ namespace RealDedicated_UnityGameLibrary.Audio
                     }
                 }
             }
+
+            UpdateDelay();
         }
 
         #region Triggers
@@ -109,18 +120,26 @@ namespace RealDedicated_UnityGameLibrary.Audio
             {
                 if (isUsingTrigger)
                 {
-                    if (randomSound)
+                    if (useTriggerDelay)
                     {
                         if (onEnterSoundCount > 0)
-                        {
-                            PlayRandomSound(onEnterSoundList);
-                        }
+                            TriggerDelay(onEnterSoundList);
                     }
                     else
                     {
-                        if (onEnterSoundCount > 0)
+                        if (randomSound)
                         {
-                            PlayNextSound(onEnterSoundList);
+                            if (onEnterSoundCount > 0)
+                            {
+                                PlayRandomSound(onEnterSoundList);
+                            }
+                        }
+                        else
+                        {
+                            if (onEnterSoundCount > 0)
+                            {
+                                PlayNextSound(onEnterSoundList);
+                            }
                         }
                     }
                 }
@@ -133,15 +152,23 @@ namespace RealDedicated_UnityGameLibrary.Audio
             {
                 if (isUsingTrigger)
                 {
-                    if (randomSound)
+                    if (useTriggerDelay)
                     {
                         if (onExitSoundCount > 0)
-                            PlayRandomSound(onExitSoundList);
+                            TriggerDelay(onExitSoundList);
                     }
                     else
                     {
-                        if (onExitSoundCount > 0)
-                            PlayNextSound(onExitSoundList);
+                        if (randomSound)
+                        {
+                            if (onExitSoundCount > 0)
+                                PlayRandomSound(onExitSoundList);
+                        }
+                        else
+                        {
+                            if (onExitSoundCount > 0)
+                                PlayNextSound(onExitSoundList);
+                        }
                     }
                 }
             }
@@ -155,30 +182,27 @@ namespace RealDedicated_UnityGameLibrary.Audio
                 {
                     if (hasOnStay)
                     {
-                        if (randomSound)
+                        if (useTriggerDelay)
                         {
                             if (onStaySoundCount > 0)
-                                PlayRandomSound(onStaySoundList);
+                                TriggerDelay(onStaySoundList);
                         }
                         else
                         {
-                            if (onStaySoundCount > 0)
-                                PlayNextSound(onStaySoundList);
+                            if (randomSound)
+                            {
+                                if (onStaySoundCount > 0)
+                                    PlayRandomSound(onStaySoundList);
+                            }
+                            else
+                            {
+                                if (onStaySoundCount > 0)
+                                    PlayNextSound(onStaySoundList);
+                            }
+                            
                         }
                     }
-                    else
-                    {
-                        if (randomSound)
-                        {
-                            if (onStaySoundCount > 0)
-                                PlayRandomSound(onStaySoundList);
-                        }
-                        else
-                        {
-                            if (onStaySoundCount > 0)
-                                PlayNextSound(onStaySoundList);
-                        }
-                    }
+                    
                 }
             }
         }
@@ -205,6 +229,33 @@ namespace RealDedicated_UnityGameLibrary.Audio
             }
             audio.clip = set[next];
             audio.Play();
+        }
+
+        private void TriggerDelay(AudioClip[] set)
+        {
+            triggerCalled = true;
+            current = set;
+            triggerTime = Time.time;
+        }
+        
+        private void UpdateDelay()
+        {
+            if (triggerCalled)
+            {
+                if (Time.time - triggerTime < triggerDelay)
+                {
+                    if (randomSound)
+                    {
+                        if (current.Length > 0)
+                            PlayRandomSound(current);
+                    }
+                    else
+                    {
+                        if (current.Length > 0)
+                            PlayNextSound(current);
+                    }
+                }
+            }
         }
     }
 }
