@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-
 using UnityEngine;
 
 
@@ -12,6 +11,18 @@ namespace RealDedicated_UnityGameLibrary.Audio
         // Set true if the GO has a collider being used as a trigger
         [UnityEngine.SerializeField]
         private bool isUsingTrigger { get; set; }
+        
+        [UnityEngine.SerializeField]
+        private bool oneShotOnTimer { get; set; }
+
+        [UnityEngine.SerializeField]
+        private bool oneShotRepeat { get; set; }
+
+        [UnityEngine.SerializeField]
+        private float oneShotTime = 0.0f;
+
+        [UnityEngine.SerializeField]
+        private AudioClip oneShotSound = null;
 
         [UnityEngine.SerializeField]
         private Collider triggerArea = null;
@@ -40,7 +51,7 @@ namespace RealDedicated_UnityGameLibrary.Audio
 
         [UnityEngine.SerializeField]
         private float triggerDelay = 0.0f;
-
+        
         [UnityEngine.SerializeField]
         private string EndTriggerSection = "";
 
@@ -59,6 +70,8 @@ namespace RealDedicated_UnityGameLibrary.Audio
         [UnityEngine.SerializeField]
         private bool randomSound { get; set; }
 
+        private float startTime = 0.0f;
+
         private AudioSource audio;
         private void Create() { }
 
@@ -67,71 +80,104 @@ namespace RealDedicated_UnityGameLibrary.Audio
         private void Awake() 
         {
             audio = this.gameObject.GetComponent<AudioSource>();
+            startTime = Time.time;
+        }
+
+        private void Update()
+        {
+            if (oneShotOnTimer)
+            {
+                if (Time.time - startTime < oneShotTime)
+                {
+                    if (oneShotSound != null)
+                    {
+                        audio.clip = oneShotSound;
+                        audio.Play();
+                        if (oneShotRepeat)
+                        {
+                            startTime = Time.time;
+                        }
+                    }
+                }
+            }
         }
 
         #region Triggers
         private void OnTriggerEnter(Collider other)
         {
-            if (isUsingTrigger)
+            if (!oneShotOnTimer)
             {
-                if (randomSound)
+                if (isUsingTrigger)
                 {
-                    if (onEnterSoundCount > 0)
-                        PlayRandomSound(onEnterSoundList);
-                }
-                else
-                {
-                    if (onEnterSoundCount > 0)
-                        PlayNextSound(onEnterSoundList);
+                    if (randomSound)
+                    {
+                        if (onEnterSoundCount > 0)
+                        {
+                            PlayRandomSound(onEnterSoundList);
+                        }
+                    }
+                    else
+                    {
+                        if (onEnterSoundCount > 0)
+                        {
+                            PlayNextSound(onEnterSoundList);
+                        }
+                    }
                 }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (isUsingTrigger)
+            if (!oneShotOnTimer)
             {
-                if (randomSound)
+                if (isUsingTrigger)
                 {
-                    if(onExitSoundCount>0)
-                        PlayRandomSound(onExitSoundList);
-                }
-                else
-                {
-                    if (onExitSoundCount > 0)
-                        PlayNextSound(onExitSoundList);
+                    if (randomSound)
+                    {
+                        if (onExitSoundCount > 0)
+                            PlayRandomSound(onExitSoundList);
+                    }
+                    else
+                    {
+                        if (onExitSoundCount > 0)
+                            PlayNextSound(onExitSoundList);
+                    }
                 }
             }
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (isUsingTrigger)
+            if (!oneShotOnTimer)
             {
-                if (hasOnStay)
+                if (isUsingTrigger)
                 {
-                    if (randomSound)
+                    if (hasOnStay)
                     {
-                        if (onStaySoundCount > 0)
-                            PlayRandomSound(onStaySoundList);
+                        if (randomSound)
+                        {
+                            if (onStaySoundCount > 0)
+                                PlayRandomSound(onStaySoundList);
+                        }
+                        else
+                        {
+                            if (onStaySoundCount > 0)
+                                PlayNextSound(onStaySoundList);
+                        }
                     }
                     else
                     {
-                        if (onStaySoundCount > 0)
-                            PlayNextSound(onStaySoundList);
-                    }
-                }
-                else
-                {
-                    if (randomSound)
-                    {
-                        if (onStaySoundCount > 0)
-                            PlayRandomSound(onStaySoundList);
-                    }
-                    else
-                    {
-                        if (onStaySoundCount > 0)
-                            PlayNextSound(onStaySoundList);
+                        if (randomSound)
+                        {
+                            if (onStaySoundCount > 0)
+                                PlayRandomSound(onStaySoundList);
+                        }
+                        else
+                        {
+                            if (onStaySoundCount > 0)
+                                PlayNextSound(onStaySoundList);
+                        }
                     }
                 }
             }
