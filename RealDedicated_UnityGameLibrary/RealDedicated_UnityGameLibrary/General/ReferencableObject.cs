@@ -2,7 +2,8 @@
 
 namespace RealDedicated_UnityGameLibrary
 {
-    public class ReferencableObject
+    [System.Serializable]
+    public class ReferencableObject : MonoBehaviour
     {
         #region Members
         private string objectName;
