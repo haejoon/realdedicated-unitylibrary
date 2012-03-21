@@ -19,7 +19,7 @@ namespace RealDedicated_UnityGameLibrary
             set { this.objectListName = value; }
         }
 
-        public ReferencableObject[] GuiStyles
+        public ReferencableObject[] Objects
         {
             get { return this.objects; }
             set { this.objects = value; }
