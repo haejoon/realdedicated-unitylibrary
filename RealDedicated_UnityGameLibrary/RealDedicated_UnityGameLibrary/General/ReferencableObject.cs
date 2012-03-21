@@ -3,7 +3,7 @@
 namespace RealDedicated_UnityGameLibrary
 {
     [System.Serializable]
-    public class ReferencableObject : MonoBehaviour
+    public sealed class ReferencableObject
     {
         #region Members
         [UnityEngine.SerializeField]
