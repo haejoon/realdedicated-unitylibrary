@@ -6,7 +6,9 @@ namespace RealDedicated_UnityGameLibrary
     public class ReferencableObject : MonoBehaviour
     {
         #region Members
+        [UnityEngine.SerializeField]
         private string objectName;
+        [UnityEngine.SerializeField]
         private Object objectToReference;
         #endregion
 
