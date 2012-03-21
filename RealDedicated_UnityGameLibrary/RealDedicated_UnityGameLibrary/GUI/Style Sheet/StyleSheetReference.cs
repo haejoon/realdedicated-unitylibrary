@@ -84,6 +84,5 @@ namespace RealDedicated_UnityGameLibrary
             return tempStyleSheet;
         }
         #endregion
-
     }
 }
