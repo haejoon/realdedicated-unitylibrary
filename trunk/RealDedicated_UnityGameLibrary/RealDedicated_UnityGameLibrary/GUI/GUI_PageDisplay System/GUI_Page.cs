@@ -54,8 +54,7 @@ namespace RealDedicated_UnityGameLibrary
 
         #region Methods
         public void Awake()
-        {
-            
+        {           
             this.GUI_PageAwake();
             this.GetPageDisplayController();
         }

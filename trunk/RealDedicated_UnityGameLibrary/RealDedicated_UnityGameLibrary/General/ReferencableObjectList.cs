@@ -46,9 +46,9 @@ namespace RealDedicated_UnityGameLibrary
         /// <summary>
         /// Retrieve Object by name 
         /// </summary>
-        /// <param name="nameOfStyle">Name of Object</param>
+        /// <param name="nameOfObject">Name of Object</param>
         /// <returns></returns>
-        public virtual ReferencableObject RetrieveGUIStyle(string nameOfObject)
+        public virtual ReferencableObject RetrieveObject(string nameOfObject)
         {
             ReferencableObject tempObject = new ReferencableObject();
 

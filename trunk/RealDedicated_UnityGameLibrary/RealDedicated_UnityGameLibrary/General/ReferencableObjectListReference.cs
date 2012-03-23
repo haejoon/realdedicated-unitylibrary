@@ -66,7 +66,7 @@ namespace RealDedicated_UnityGameLibrary
         /// <summary>
         /// Retrieve ObjectList by name 
         /// </summary>
-        /// <param name="nameOfStyle">Name of ObjectList</param>
+        /// <param name="nameOfObjectList">Name of ObjectList</param>
         /// <returns></returns>
         public virtual ReferencableObjectList RetrieveObjectList(string nameOfObjectList)
         {
@@ -82,6 +82,51 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             return tempObjectList;
+        }
+
+        /// <summary>
+        /// Retrieve Object By Name. NOTE: Will return FIRST object of that name
+        /// </summary>
+        /// <param name="nameOfObject">Name of Object</param>
+        /// <returns></returns>
+        public virtual ReferencableObject RetrieveObject(string nameOfObject)
+        {
+            ReferencableObject tempObject = null;
+
+            foreach (ReferencableObjectList childObjectList in this.activeObjectLists)
+            {
+                foreach (ReferencableObject childObject in childObjectList.Objects)
+                {
+                    if (childObject.ObjectName == nameOfObject)
+                    {
+                        tempObject = childObject;
+                        break;
+                    }
+                }
+            }
+
+            return tempObject;
+        }
+
+        /// <summary>
+        /// Retrieve Object By Name from List by Name.
+        /// </summary>
+        /// <param name="nameOfObject">Name of Object</param>
+        /// <param name="nameOfObjectList">Name of ObjectList</param>
+        /// <returns></returns>
+        public virtual ReferencableObject RetrieveObject(string nameOfObject, string nameOfObjectList)
+        {
+            ReferencableObject tempObject = null;
+
+            foreach (ReferencableObjectList childObjectList in this.activeObjectLists)
+            {
+                if (childObjectList.ObjectListName == nameOfObjectList)
+                {
+                    tempObject = childObjectList.RetrieveObject(nameOfObject);
+                }
+            }
+
+            return tempObject;
         }
         #endregion
 
