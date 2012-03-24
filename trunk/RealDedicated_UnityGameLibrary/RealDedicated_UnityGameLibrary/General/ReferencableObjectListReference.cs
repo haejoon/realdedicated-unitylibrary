@@ -15,7 +15,7 @@ namespace RealDedicated_UnityGameLibrary
                 if (objectListInstance == null)
                 {
                     objectListInstance = FindObjectOfType(typeof(ReferencableObjectListReference)) as ReferencableObjectListReference;
-                }
+                } 
 
                 if (objectListInstance == null)
                 {
