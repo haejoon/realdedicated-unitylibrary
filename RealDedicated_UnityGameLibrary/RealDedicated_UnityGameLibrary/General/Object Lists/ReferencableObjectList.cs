@@ -29,7 +29,13 @@ namespace RealDedicated_UnityGameLibrary
         #region Methods
         public void Awake()
         {
+            this.GetObjects();
             this.NameObjects();
+        }
+
+        protected virtual void GetObjects()
+        {
+            
         }
 
         protected virtual void NameObjects()

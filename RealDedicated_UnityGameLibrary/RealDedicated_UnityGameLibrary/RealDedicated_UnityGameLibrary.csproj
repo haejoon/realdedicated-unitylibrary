@@ -58,6 +58,7 @@
     <Compile Include="General\Object Lists\ReferencableObjectList.cs" />
     <Compile Include="General\Object Lists\ReferencableObjectListReference.cs" />
     <Compile Include="General\Score System\CSVToScoreValueSheetParser.cs" />
+    <Compile Include="General\Score System\ScoreSheetReference.cs" />
     <Compile Include="General\Score System\ScoreValueSheet.cs" />
     <Compile Include="General\Timer System\Timer.cs" />
     <Compile Include="General\Timer System\TimerBuilder.cs" />
