@@ -19,6 +19,7 @@ namespace RealDedicated_UnityGameLibrary
                 tempRefObjects[i].ObjectToReference = tempScoreSheets[i];
             }
 
+            this.Objects = new ReferencableObject[tempRefObjects.Length];
             this.Objects = tempRefObjects;
         }
 
