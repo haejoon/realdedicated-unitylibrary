@@ -27,7 +27,7 @@ namespace RealDedicated_UnityGameLibrary
         #endregion
 
         #region Methods
-        public void Awake()
+        public void Start()
         {
             this.GetObjects();
             this.NameObjects();
