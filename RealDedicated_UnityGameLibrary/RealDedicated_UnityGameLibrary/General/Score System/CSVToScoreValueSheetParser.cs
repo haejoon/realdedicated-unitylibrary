@@ -5,7 +5,7 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
     public class CSVToScoreValueSheetParser : MonoBehaviour
     {
         public TextAsset csvFile;
-        public char separator;
+        public string separator = ",";
 
         public void Awake()
         {
@@ -15,22 +15,22 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
 
         private void CreateScoreValueSheet()
         {
-            this.gameObject.AddComponent<ScoreValueSheet>();
-
-            ScoreValueSheet tempValueSheet = this.gameObject.GetComponent<ScoreValueSheet>();
+            ScoreValueSheet tempValueSheet = this.gameObject.AddComponent<ScoreValueSheet>();
             tempValueSheet.ValueSheetName = this.csvFile.name;
             string[] parsedCSV = this.ParseCSV();
 
             tempValueSheet.ValueMap = new ScoreValueSheet.ValueItem[parsedCSV.Length];
 
             this.SetValues(parsedCSV, tempValueSheet);
+
+            Destroy(this);
         }
 
         private string[] ParseCSV()
         {
             string[] parsedCSVFile = this.csvFile.text.Split('\n');
 
-            Debug.Log("New Lines: " + parsedCSVFile.ToString());
+            Debug.Log(this.csvFile.text);
 
             return parsedCSVFile;
         }
@@ -47,14 +47,13 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
         {
             ScoreValueSheet.ValueItem tempValueItem = null;
 
-            string[] splitValueString = valueString.Split(this.separator);
+            string[] splitValueString = valueString.Split(this.separator[0]);
             
             float tempScore = 0;
             float parsedFloat = 0;
             if (float.TryParse(splitValueString[1].ToString(), out parsedFloat))
             {
                 tempScore = parsedFloat;
-                Debug.Log("Successfully parsed float");
             }
 
             tempValueItem = new ScoreValueSheet.ValueItem(splitValueString[0], tempScore);
