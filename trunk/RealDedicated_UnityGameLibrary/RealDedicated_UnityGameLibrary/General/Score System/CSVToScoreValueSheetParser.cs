@@ -45,7 +45,7 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
 
         private ScoreValueSheet.ValueItem GetValueItem(string valueString)
         {
-            ScoreValueSheet.ValueItem tempValueItem = new ScoreValueSheet.ValueItem();
+            ScoreValueSheet.ValueItem tempValueItem = null;
 
             string[] splitValueString = valueString.Split(this.separator);
             

@@ -5,7 +5,7 @@ namespace RealDedicated_UnityGameLibrary
     public class ScoreValueSheet : MonoBehaviour
     {
         [System.Serializable]
-        public struct ValueItem
+        public sealed class ValueItem
         {
             public string value;
             public float score;
