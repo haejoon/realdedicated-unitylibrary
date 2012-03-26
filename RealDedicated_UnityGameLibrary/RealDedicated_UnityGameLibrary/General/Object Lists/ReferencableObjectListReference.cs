@@ -29,6 +29,7 @@ namespace RealDedicated_UnityGameLibrary
         }
         #endregion
 
+        [UnityEngine.SerializeField]
         private ReferencableObjectList[] activeObjectLists;
         #endregion
 

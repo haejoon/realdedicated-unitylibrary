@@ -9,8 +9,9 @@ namespace RealDedicated_UnityGameLibrary
         {
             base.GetObjects();
 
-            ScoreValueSheet[] tempScoreSheets = this.GetComponents<ScoreValueSheet>();
+            ScoreValueSheet[] tempScoreSheets = this.gameObject.GetComponents<ScoreValueSheet>();
             ReferencableObject[] tempRefObjects = new ReferencableObject[tempScoreSheets.Length];
+            Debug.Log("I found: " + tempScoreSheets.Length + " Score Sheets");
 
             for(int i = 0; i < tempRefObjects.Length; i++)
             {
@@ -23,6 +24,16 @@ namespace RealDedicated_UnityGameLibrary
 
         protected override void NameObjects()
         {
+            for (int i = 0; i < this.Objects.Length; i++)
+            {
+                string scoreSheetName = (this.Objects[i].ObjectToReference as ScoreValueSheet).ValueSheetName;
+
+                if (scoreSheetName != "")
+                {
+                    this.Objects[i].ObjectName = scoreSheetName;
+                }
+            }
+
             base.NameObjects();
         }
 
