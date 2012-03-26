@@ -16,12 +16,12 @@ namespace RealDedicated_UnityGameLibrary
             for(int i = 0; i < tempRefObjects.Length; i++)
             {
                 Debug.Log("Score sheet: " + i);
+                tempRefObjects[i] = new ReferencableObject();
                 tempRefObjects[i].ObjectName = tempScoreSheets[i].ValueSheetName;
                 tempRefObjects[i].ObjectToReference = tempScoreSheets[i];
             }
 
             this.Objects = new ReferencableObject[tempRefObjects.Length];
-            Debug.Log("Created Temp Objects list");
             this.Objects = tempRefObjects;
         }
 
