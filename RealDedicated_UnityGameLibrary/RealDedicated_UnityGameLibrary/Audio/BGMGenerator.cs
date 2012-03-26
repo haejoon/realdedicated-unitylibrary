@@ -19,13 +19,15 @@ namespace RealDedicated_UnityGameLibrary.Audio
         [UnityEngine.SerializeField]
         private static int songCount = 0;
 
-        [UnityEngine.SerializeField]
-        private int startingTrack = 0;
+        //[UnityEngine.SerializeField]
+        //private int startingTrack = 0;
 
         private int currentTrack = 0;
 
-        [UnityEngine.SerializeField]
-        private GameObject gM;
+        //[UnityEngine.SerializeField]
+        //private GameObject gM;
+
+        private AudioSource audioSource;
 
         [UnityEngine.SerializeField]
         private Transform cameratransform;
@@ -55,20 +57,32 @@ namespace RealDedicated_UnityGameLibrary.Audio
         }
         #endregion
 
+        GameObject parent;
+
         void Awake() 
         {
             DontDestroyOnLoad(this);
+            this.audioSource = this.gameObject.GetComponent<AudioSource>();
+            #warning "not intelligent object assignment"
+            parent = GameObject.Find("GameCamera");
 
-            //paused=false;
-            //fadingIn=false;
-            //fadingOut=false;
 
-            audio.dopplerLevel = 0.0f;
-            audio.volume = soundtrackVolume;
-            audio.loop = false;
-            audio.playOnAwake = false;
-            audio.Play();
+            if (this.audioSource == null)
+            {
+                this.audioSource.gameObject.AddComponent<AudioSource>();
+                this.audioSource = this.audioSource.gameObject.GetComponent<AudioSource>();
+                this.audioSource.playOnAwake = false;
+
+                audioSource.dopplerLevel = 0.0f;
+                audioSource.volume = soundtrackVolume;
+                audioSource.loop = false;
+                audioSource.playOnAwake = false;
+                
+            }
+            audioSource.clip = soundTrack[0];
+            audioSource.Play();
         }
+       
 
         void Start() { }
 
@@ -87,7 +101,7 @@ namespace RealDedicated_UnityGameLibrary.Audio
                 {
                     // check relevancy of this
                     GameObject newObj = new GameObject("AudioMaster");
-                    jukeBoxInstance = newObj.AddComponent(typeof(BGMGenerator)) as BGMGenerator;
+                    //jukeBoxInstance = newObj.AddComponent(typeof(BGMGenerator)) as BGMGenerator;
                     Debug.Log("Could not find AudioMaster, so I made one");
                 }
 
@@ -131,20 +145,8 @@ namespace RealDedicated_UnityGameLibrary.Audio
                     audio.volume = 0.0f;
                 }
             }
-        }
-
-        private void Playing()
-        {
-            if (soundTrack[currentTrack].length != 0)
-                return;
-
-            if (!audio.isPlaying)
-            {
-                currentTrack = (int)((currentTrack + 1) % soundTrack[currentTrack].length);
-                audio.clip = soundTrack[currentTrack];
-                print("Now playing: " + soundTrack[currentTrack].name);
-            }
-        }
+            this.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y,parent.transform.position.z);
+        }        
 
         public void RemotePause()
         {
