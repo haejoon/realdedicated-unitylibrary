@@ -44,16 +44,16 @@ namespace RealDedicated_UnityGameLibrary
         #region Methods
         public void Awake()
         {
-            this.GetStyleSheets();
-            this.NameStyleSheets();
+            this.GetObjectLists();
+            this.NameObjectLists();
         }
 
-        protected virtual void GetStyleSheets()
+        protected virtual void GetObjectLists()
         {
             this.activeObjectLists = FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
         }
 
-        protected virtual void NameStyleSheets()
+        protected virtual void NameObjectLists()
         {
             for (int i = 0; i < this.activeObjectLists.Length; i++)
             {

@@ -5,6 +5,30 @@ namespace RealDedicated_UnityGameLibrary
 {
     public class ValueMapReference : ReferencableObjectList
     {
+        #region Static Instance
+        private static ValueMapReference classInstance = null;
+
+        public static ValueMapReference instance
+        {
+            get
+            {
+                if (classInstance == null)
+                {
+                    classInstance = FindObjectOfType(typeof(ValueMapReference)) as ValueMapReference;
+                }
+
+                if (classInstance == null)
+                {
+                    GameObject newObj = new GameObject("ValueMapReference");
+                    classInstance = newObj.AddComponent(typeof(ValueMapReference)) as ValueMapReference;
+                    Debug.Log("Could not find ValueMapReference, so I made one");
+                }
+
+                return classInstance;
+            }
+        }
+        #endregion
+
         protected override void GetObjects()
         {
             base.GetObjects();
@@ -41,11 +65,11 @@ namespace RealDedicated_UnityGameLibrary
         }
 
         /// <summary>
-        /// Returns a score from a connected value. 
+        /// Returns a score from a connected value, returns first true value
         /// </summary>
         /// <param name="connectedValue"></param>
         /// <returns></returns>
-        protected virtual float GetScoreFromValue(string connectedValue)
+        public virtual float GetScoreFromValue(string connectedValue)
         {
             foreach (ReferencableObject childObject in this.Objects)
             {
@@ -68,11 +92,11 @@ namespace RealDedicated_UnityGameLibrary
         /// </summary>
         /// <param name="connectedValue"></param>
         /// <returns></returns>
-        protected virtual float GetScoreFromValue(string connectedValue, string scoreSheetName)
+        public virtual float GetScoreFromValue(string connectedValue, string valueMapName)
         {
             foreach (ReferencableObject childObject in this.Objects)
             {
-                if ((childObject.ObjectToReference as ValueMap).ValueMapName == scoreSheetName)
+                if ((childObject.ObjectToReference as ValueMap).ValueMapName == valueMapName)
                 {
                     ValueMap.ValueItem[] valueMap = (childObject.ObjectToReference as ValueMap).ValueItems;
 
