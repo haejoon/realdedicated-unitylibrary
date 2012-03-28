@@ -59,9 +59,10 @@
     <Compile Include="BasicMouseClicks\MouseClick_QuitApplication.cs" />
     <Compile Include="General\Object Lists\ReferencableObjectList.cs" />
     <Compile Include="General\Object Lists\ReferencableObjectListReference.cs" />
-    <Compile Include="General\Score System\CSVToScoreValueSheetParser.cs" />
-    <Compile Include="General\Score System\ScoreSheetReference.cs" />
-    <Compile Include="General\Score System\ScoreValueSheet.cs" />
+    <Compile Include="General\Score System\CSVToValueMapParser.cs" />
+    <Compile Include="General\Score System\ScoreManager.cs" />
+    <Compile Include="General\Score System\ValueMapReference.cs" />
+    <Compile Include="General\Score System\ValueMap.cs" />
     <Compile Include="General\Timer System\Timer.cs" />
     <Compile Include="General\Timer System\TimerBuilder.cs" />
     <Compile Include="GUI\GUI_PageDisplay System\GUI_Page.cs" />
