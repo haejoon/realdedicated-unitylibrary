@@ -4,33 +4,36 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
 {
     public class CSVToValueMapParser : MonoBehaviour
     {
-        public TextAsset csvFile;
+        public TextAsset[] csvFiles;
         public string separator = ",";
 
         public void Awake()
         {
-            if (this.csvFile != null && this.separator != null)
-                this.CreateScoreValueSheet();
+            if (this.csvFiles != null && this.separator != null)
+                this.CreateScoreValueSheets();
         }
 
-        private void CreateScoreValueSheet()
+        private void CreateScoreValueSheets()
         {
-            ValueMap tempValueSheet = this.gameObject.AddComponent<ValueMap>();
-            tempValueSheet.ValueMapName = this.csvFile.name;
-            string[] parsedCSV = this.ParseCSV();
+            foreach (TextAsset csvFile in this.csvFiles)
+            {
+                ValueMap tempValueSheet = this.gameObject.AddComponent<ValueMap>();
+                tempValueSheet.ValueMapName = csvFile.name;
+                string[] parsedCSV = this.ParseCSV(csvFile);
 
-            tempValueSheet.ValueItems = new ValueMap.ValueItem[parsedCSV.Length];
+                tempValueSheet.ValueItems = new ValueMap.ValueItem[parsedCSV.Length];
 
-            this.SetValues(parsedCSV, tempValueSheet);
+                this.SetValues(parsedCSV, tempValueSheet);
+            }
 
             Destroy(this);
         }
 
-        private string[] ParseCSV()
+        private string[] ParseCSV(TextAsset csvFile)
         {
-            string[] parsedCSVFile = this.csvFile.text.Split('\n');
+            string[] parsedCSVFile = csvFile.text.Split('\n');
 
-            Debug.Log(this.csvFile.text);
+            Debug.Log(csvFile.text);
 
             return parsedCSVFile;
         }
