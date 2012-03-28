@@ -51,6 +51,7 @@
     <Compile Include="Animation\AnimationDelayer.cs" />
     <Compile Include="Animation\AnimationSpeedController.cs" />
     <Compile Include="Audio\AmbientSoundGenerator.cs" />
+    <Compile Include="Audio\AudioSourceExtensions.cs" />
     <Compile Include="Audio\BGMGenerator.cs" />
     <Compile Include="BasicMouseClicks\MouseClickObjectDestroyer.cs" />
     <Compile Include="BasicMouseClicks\MouseClickPrefabSpawner.cs" />
