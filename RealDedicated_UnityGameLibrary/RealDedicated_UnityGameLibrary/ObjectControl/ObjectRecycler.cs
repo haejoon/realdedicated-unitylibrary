@@ -26,6 +26,8 @@ namespace RealDedicated_UnityGameLibrary
                 GameObject newObject = Object.Instantiate(go) as GameObject;
                 //Deactivate the object
                 newObject.gameObject.active = false;
+
+                newObject.gameObject.SetActiveRecursively(false);
                 //Store the object for later use
                 this.objectList.Add(newObject);
             }
@@ -61,6 +63,7 @@ namespace RealDedicated_UnityGameLibrary
                 }
 
                 freeObject.active = true;
+                freeObject.SetActiveRecursively(true);
 
                 fireRecycledEvent();
 
@@ -72,6 +75,7 @@ namespace RealDedicated_UnityGameLibrary
         public void freeObject(GameObject objectToFree)
         {
             objectToFree.gameObject.active = false;
+            objectToFree.gameObject.SetActiveRecursively(false);
 
             fireRecycledEvent();
         }
