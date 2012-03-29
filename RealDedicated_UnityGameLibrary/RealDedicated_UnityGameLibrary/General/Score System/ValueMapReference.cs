@@ -35,11 +35,9 @@ namespace RealDedicated_UnityGameLibrary
 
             ValueMap[] tempScoreSheets = this.gameObject.GetComponents<ValueMap>();
             ReferencableObject[] tempRefObjects = new ReferencableObject[tempScoreSheets.Length];
-            Debug.Log("I found: " + tempScoreSheets.Length + " Score Sheets");
 
             for(int i = 0; i < tempRefObjects.Length; i++)
             {
-                Debug.Log("Score sheet: " + i);
                 tempRefObjects[i] = new ReferencableObject();
                 tempRefObjects[i].ObjectName = tempScoreSheets[i].ValueMapName;
                 tempRefObjects[i].ObjectToReference = tempScoreSheets[i];

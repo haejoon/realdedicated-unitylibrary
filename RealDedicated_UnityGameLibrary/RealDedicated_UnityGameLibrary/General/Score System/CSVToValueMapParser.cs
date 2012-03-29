@@ -33,8 +33,6 @@ namespace RealDedicated_UnityGameLibrary.General.Score_System
         {
             string[] parsedCSVFile = csvFile.text.Split('\n');
 
-            Debug.Log(csvFile.text);
-
             return parsedCSVFile;
         }
 
