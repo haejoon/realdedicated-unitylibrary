@@ -24,6 +24,21 @@ namespace RealDedicated_UnityGameLibrary
             get { return this.objects; }
             set { this.objects = value; }
         }
+
+        public Object[] ObjectsActual
+        {
+            get
+            {
+                Object[] tempObjects = new Object[this.Objects.Length];
+
+                for (int i = 0; i < this.Objects.Length; i++)
+                {
+                    tempObjects[i] = this.Objects[i].ObjectToReference;
+                }
+
+                return tempObjects;
+            }
+        }
         #endregion
 
         #region Methods
