@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace RealDedicated_UnityGameLibrary
 {
@@ -83,6 +84,22 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             return tempObject;
+        }
+
+        static public IList ConvertObjects(Object[] firstArray, System.Type targetType)
+        {
+
+            System.Array array = System.Array.CreateInstance(targetType, firstArray.Length);
+
+            for (int i = 0; i < firstArray.Length; i++)
+            {
+
+                array.SetValue(System.Convert.ChangeType(firstArray[i], targetType), i);
+
+            }
+
+            return array;
+
         }
         #endregion
     }
