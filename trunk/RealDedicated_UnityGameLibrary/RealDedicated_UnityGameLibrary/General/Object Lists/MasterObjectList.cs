@@ -35,7 +35,7 @@ namespace RealDedicated_UnityGameLibrary
         {
             base.GetObjects();
 
-            ReferencableObjectList[] tempObjectLists = this.gameObject.GetComponents<ReferencableObjectList>();
+            ReferencableObjectList[] tempObjectLists = GameObject.FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
             ReferencableObject[] tempRefObjects = new ReferencableObject[tempObjectLists.Length];
 
             for (int i = 0; i < tempRefObjects.Length; i++)
