@@ -40,9 +40,12 @@ namespace RealDedicated_UnityGameLibrary
 
             for (int i = 0; i < tempRefObjects.Length; i++)
             {
-                tempRefObjects[i] = new ReferencableObject();
-                tempRefObjects[i].ObjectName = tempObjectLists[i].ObjectListName;
-                tempRefObjects[i].ObjectToReference = tempObjectLists[i];
+                if (tempObjectLists[i] != this)
+                {
+                    tempRefObjects[i] = new ReferencableObject();
+                    tempRefObjects[i].ObjectName = tempObjectLists[i].ObjectListName;
+                    tempRefObjects[i].ObjectToReference = tempObjectLists[i];
+                }
             }
 
             this.Objects = new ReferencableObject[tempRefObjects.Length];
