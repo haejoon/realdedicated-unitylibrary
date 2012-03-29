@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace RealDedicated_UnityGameLibrary
 {
@@ -26,15 +26,15 @@ namespace RealDedicated_UnityGameLibrary
             set { this.objects = value; }
         }
 
-        public Object[] ObjectsActual
+        public List<Object> ObjectsActual
         {
             get
             {
-                Object[] tempObjects = new Object[this.Objects.Length];
+                List<Object> tempObjects = new List<Object>();
 
                 for (int i = 0; i < this.Objects.Length; i++)
                 {
-                    tempObjects[i] = this.Objects[i].ObjectToReference;
+                    tempObjects.Add(this.Objects[i].ObjectToReference);
                 }
 
                 return tempObjects;
@@ -84,22 +84,6 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             return tempObject;
-        }
-
-        static public IList ConvertObjects(Object[] firstArray, System.Type targetType)
-        {
-
-            System.Array array = System.Array.CreateInstance(targetType, firstArray.Length);
-
-            for (int i = 0; i < firstArray.Length; i++)
-            {
-
-                array.SetValue(System.Convert.ChangeType(firstArray[i], targetType), i);
-
-            }
-
-            return array;
-
         }
         #endregion
     }
