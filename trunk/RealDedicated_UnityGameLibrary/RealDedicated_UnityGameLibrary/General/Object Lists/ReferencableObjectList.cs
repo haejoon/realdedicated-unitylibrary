@@ -66,7 +66,7 @@ namespace RealDedicated_UnityGameLibrary
         }
 
         /// <summary>
-        /// Retrieve Object by name 
+        /// Retrieve ReferenceableObject by name 
         /// </summary>
         /// <param name="nameOfObject">Name of Object</param>
         /// <returns></returns>
@@ -84,6 +84,16 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             return tempObject;
+        }
+
+        /// <summary>
+        /// Retrieve Object by name 
+        /// </summary>
+        /// <param name="nameOfObject">Name of Object</param>
+        /// <returns></returns>
+        public virtual Object RetrieveObjectActual(string nameOfObject)
+        {
+            return this.RetrieveObject(nameOfObject).ObjectToReference;
         }
         #endregion
     }

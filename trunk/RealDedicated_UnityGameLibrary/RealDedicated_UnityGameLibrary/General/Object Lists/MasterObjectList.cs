@@ -2,6 +2,9 @@
 
 namespace RealDedicated_UnityGameLibrary
 {
+    /// <summary>
+    /// This class contains all of there RefrenceableObjectLists found in a Scene. 
+    /// </summary>
     public class MasterObjectList : ReferencableObjectList
     {
         #region Static Instance
@@ -68,7 +71,7 @@ namespace RealDedicated_UnityGameLibrary
         }
 
         /// <summary>
-        /// Retrieve Object By Name from List by Name.
+        /// Retrieve ReferenceableObject By Name from List by Name.
         /// </summary>
         /// <param name="nameOfObject">Name of Object</param>
         /// <param name="nameOfObjectList">Name of ObjectList</param>
@@ -95,6 +98,17 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             return tempObject;
+        }
+
+        /// <summary>
+        /// Retrieve Actual Object By Name from List by Name.
+        /// </summary>
+        /// <param name="nameOfObject">Name of Object</param>
+        /// <param name="nameOfObjectList">Name of ObjectList</param>
+        /// <returns></returns>
+        public virtual Object RetrieveObjectActual(string nameOfObject, string nameOfObjectList)
+        {
+            return this.RetrieveObject(nameOfObject,nameOfObjectList).ObjectToReference;
         }
     }
 }
