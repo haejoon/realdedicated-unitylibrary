@@ -60,6 +60,8 @@ namespace RealDedicated_UnityGameLibrary
             }
 
             base.NameObjects();
+
+            this.ObjectListName = "ValueMapList";
         }
 
         /// <summary>
