@@ -116,7 +116,14 @@ namespace RealDedicated_UnityGameLibrary
         /// <returns></returns>
         public virtual Object RetrieveObjectActual(string nameOfObject, string nameOfObjectList)
         {
-            return this.RetrieveObject(nameOfObject,nameOfObjectList).ObjectToReference;
+            Object tempObject = this.RetrieveObject(nameOfObject,nameOfObjectList).ObjectToReference;
+
+            if(tempObject != null)
+                return tempObject;
+
+            Debug.Log("I couldn't find: " + nameOfObject + " in list: " + nameOfObjectList);
+
+            return null;
         }
     }
 }

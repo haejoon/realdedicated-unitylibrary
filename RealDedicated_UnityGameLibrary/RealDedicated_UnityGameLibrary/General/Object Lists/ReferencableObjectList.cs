@@ -58,7 +58,7 @@ namespace RealDedicated_UnityGameLibrary
         {
             for (int i = 0; i < this.objects.Length; i++)
             {
-                if (this.objects[i].ObjectName == "")
+                if (this.objects[i] != null && this.objects[i].ObjectName == "")
                 {
                     this.objects[i].ObjectName = "Object #" + i;
                 }
