@@ -100,11 +100,12 @@ namespace RealDedicated_UnityGameLibrary
             go.name = "OneShotAudioSource";
 
             this.oneshotAudioRecycler = new ObjectRecycler(go, 2);
+
+            Destroy(go);
         }
 
         private void RecycleObject(GameObject go)
         {
-            Debug.Log("Clip Completed, Recycling Object");
             this.oneshotAudioRecycler.freeObject(go);
         }
         #endregion
