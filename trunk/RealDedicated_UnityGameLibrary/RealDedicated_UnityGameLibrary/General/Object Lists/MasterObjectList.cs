@@ -88,22 +88,7 @@ namespace RealDedicated_UnityGameLibrary
         {
             ReferencableObject tempObject = null;
 
-            foreach (ReferencableObject childObject in this.Objects)
-            {
-                if (childObject.ObjectName == nameOfObjectList)
-                {
-                    ReferencableObjectList childObjectsList = childObject.ObjectToReference as ReferencableObjectList;
-
-                    foreach (ReferencableObject childObjectsItem in childObjectsList.Objects)
-                    {
-                        if (childObjectsItem.ObjectName == nameOfObjectList)
-                        {
-                            tempObject = childObjectsItem;
-                            break;
-                        }
-                    }
-                }
-            }
+            tempObject = this.RetrieveObjectList(nameOfObjectList).RetrieveObject(nameOfObject);
 
             return tempObject;
         }
@@ -120,8 +105,6 @@ namespace RealDedicated_UnityGameLibrary
 
             if(tempObject != null)
                 return tempObject;
-
-            Debug.Log("I couldn't find: " + nameOfObject + " in list: " + nameOfObjectList);
 
             return null;
         }
