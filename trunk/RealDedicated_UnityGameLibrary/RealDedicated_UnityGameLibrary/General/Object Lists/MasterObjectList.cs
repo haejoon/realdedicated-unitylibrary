@@ -34,6 +34,7 @@ namespace RealDedicated_UnityGameLibrary
         public void Awake()
         {
             this.GetObjects();
+            base.NameObjects();
         }
 
         protected override void GetObjects()
