@@ -67,11 +67,18 @@ namespace RealDedicated_UnityGameLibrary
         {
             ReferencableObjectList tempObjectList = null;
 
+            Debug.Log("Trying to find: " + nameOfObjectList);
+
             foreach (ReferencableObject childObject in this.Objects)
             {
                 if (childObject.ObjectName == nameOfObjectList)
                 {
+                    Debug.Log("childObject.ObjectName = " + childObject.ObjectName);
+
                     tempObjectList = childObject.ObjectToReference as ReferencableObjectList;
+
+                    Debug.Log("childObject.ObjectToReference = " + childObject.ObjectToReference.ToString());
+
                     break;
                 }
             }
