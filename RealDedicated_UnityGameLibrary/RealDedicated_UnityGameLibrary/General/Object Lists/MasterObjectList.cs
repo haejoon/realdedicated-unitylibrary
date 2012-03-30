@@ -41,7 +41,7 @@ namespace RealDedicated_UnityGameLibrary
         {
             base.GetObjects();
 
-            ReferencableObjectList[] tempObjectLists = GameObject.FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
+            ReferencableObjectList[] tempObjectLists = FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
             ReferencableObject[] tempRefObjects = new ReferencableObject[tempObjectLists.Length - 1];
 
             for (int i = 0; i < tempRefObjects.Length; i++)
@@ -71,9 +71,11 @@ namespace RealDedicated_UnityGameLibrary
 
             foreach (ReferencableObject childObject in this.Objects)
             {
+                Debug.Log("childObject.ObjectName = " + childObject.ObjectName);
+
                 if (childObject.ObjectName == nameOfObjectList)
                 {
-                    Debug.Log("childObject.ObjectName = " + childObject.ObjectName);
+                    
 
                     tempObjectList = childObject.ObjectToReference as ReferencableObjectList;
 
