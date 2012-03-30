@@ -53,7 +53,7 @@ namespace RealDedicated_UnityGameLibrary
         #endregion
 
         #region Methods
-        public void Awake()
+        public void Start()
         {           
             this.GUI_PageAwake();
             this.GetPageDisplayController();
