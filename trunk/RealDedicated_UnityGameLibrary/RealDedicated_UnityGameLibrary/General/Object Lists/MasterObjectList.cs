@@ -31,12 +31,17 @@ namespace RealDedicated_UnityGameLibrary
         }
         #endregion
 
+        public void Awake()
+        {
+            this.GetObjects();
+        }
+
         protected override void GetObjects()
         {
             base.GetObjects();
 
             ReferencableObjectList[] tempObjectLists = GameObject.FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
-            ReferencableObject[] tempRefObjects = new ReferencableObject[tempObjectLists.Length];
+            ReferencableObject[] tempRefObjects = new ReferencableObject[tempObjectLists.Length - 1];
 
             for (int i = 0; i < tempRefObjects.Length; i++)
             {
