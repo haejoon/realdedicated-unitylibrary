@@ -18,7 +18,8 @@ namespace RealDedicated_UnityGameLibrary
         public ObjectRecycler(GameObject go, int totalObjectsAtStart)
         {
             this.objectList = new List<GameObject>(totalObjectsAtStart);
-            this.objectToRecycle = go;
+            
+            this.objectToRecycle = GameObject.Instantiate(go) as GameObject;
 
             for (int i = 0; i < totalObjectsAtStart; i++)
             {
