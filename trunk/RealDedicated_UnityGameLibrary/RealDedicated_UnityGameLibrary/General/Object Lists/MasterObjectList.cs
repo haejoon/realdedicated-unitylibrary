@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 namespace RealDedicated_UnityGameLibrary
 {
@@ -33,31 +34,30 @@ namespace RealDedicated_UnityGameLibrary
 
         public void Awake()
         {
-            this.GetObjects();
-            base.NameObjects();
+            this.GetObjectLists();
         }
 
-        protected override void GetObjects()
+        private void GetObjectLists()
         {
-            base.GetObjects();
-
             ReferencableObjectList[] tempObjectLists = FindObjectsOfType(typeof(ReferencableObjectList)) as ReferencableObjectList[];
-            ReferencableObject[] tempRefObjects = new ReferencableObject[tempObjectLists.Length - 1];
+            List<ReferencableObject> tempRefObjects = new List<ReferencableObject>();
 
-            for (int i = 0; i < tempRefObjects.Length; i++)
+            for (int i = 0; i < tempObjectLists.Length; i++)
             {
-                if (tempObjectLists[i] != this)
+                if (tempObjectLists[i] != this as ReferencableObjectList && tempObjectLists[i] != null)
                 {
-                    tempRefObjects[i] = new ReferencableObject();
-                    tempRefObjects[i].ObjectName = tempObjectLists[i].ObjectListName;
-                    tempRefObjects[i].ObjectToReference = tempObjectLists[i];
+                    tempRefObjects.Add(new ReferencableObject());
+                    tempRefObjects[tempRefObjects.Count - 1].ObjectName = tempObjectLists[i].ObjectListName;
+                    tempRefObjects[tempRefObjects.Count - 1].ObjectToReference = tempObjectLists[i];
                 }
             }
 
-            this.Objects = new ReferencableObject[tempRefObjects.Length];
-            this.Objects = tempRefObjects;
+            this.Objects = new ReferencableObject[tempRefObjects.Count];
+            this.Objects = tempRefObjects.ToArray();
+
         }
 
+        #region Events
         /// <summary>
         /// Retrieve ObjectList by name 
         /// </summary>
@@ -67,19 +67,11 @@ namespace RealDedicated_UnityGameLibrary
         {
             ReferencableObjectList tempObjectList = null;
 
-            Debug.Log("Trying to find: " + nameOfObjectList);
-
             foreach (ReferencableObject childObject in this.Objects)
             {
-                Debug.Log("childObject.ObjectName = " + childObject.ObjectName);
-
                 if (childObject.ObjectName == nameOfObjectList)
-                {
-                    
-
+                {                
                     tempObjectList = childObject.ObjectToReference as ReferencableObjectList;
-
-                    Debug.Log("childObject.ObjectToReference = " + childObject.ObjectToReference.ToString());
 
                     break;
                 }
@@ -118,5 +110,7 @@ namespace RealDedicated_UnityGameLibrary
 
             return null;
         }
+
+        #endregion
     }
 }
