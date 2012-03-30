@@ -44,7 +44,7 @@ namespace RealDedicated_UnityGameLibrary
             );
         }
 
-        public void CreateOneShotAudioPlaye(AudioClip clipToPlay, Vector3 spawnLocation)
+        public void CreateOneShotAudioPlayer(AudioClip clipToPlay, Vector3 spawnLocation)
         {
             GameObject go = this.oneshotAudioRecycler.nextFreeObject;
             go.transform.position = spawnLocation;
@@ -58,7 +58,7 @@ namespace RealDedicated_UnityGameLibrary
             );
         }
 
-        public void CreateOneShotAudioPlaye(AudioClip[] randomClipsToPlay)
+        public void CreateOneShotAudioPlayer(AudioClip[] randomClipsToPlay)
         {
             GameObject go = this.oneshotAudioRecycler.nextFreeObject;
 
@@ -71,7 +71,7 @@ namespace RealDedicated_UnityGameLibrary
             );
         }
 
-        public void CreateOneShotAudioPlaye(AudioClip[] randomClipsToPlay, Vector3 spawnLocation)
+        public void CreateOneShotAudioPlayer(AudioClip[] randomClipsToPlay, Vector3 spawnLocation)
         {
             GameObject go = this.oneshotAudioRecycler.nextFreeObject;
             go.transform.position = spawnLocation;
