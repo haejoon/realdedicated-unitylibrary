@@ -6,7 +6,6 @@ namespace RealDedicated_UnityGameLibrary.Physics
     //  Name:       Jiggle Bone v.1.0
     //  Author:     Michael Cook (Fishypants)
     //  Date:       9-25-2011
-    //  License:    Free to use. Any credit would be nice :)
     //
     //  To Use:
     //      Drag this script onto a bone. (ideally bones at the end)
@@ -18,7 +17,7 @@ namespace RealDedicated_UnityGameLibrary.Physics
     using UnityEngine;
     using System.Collections;
 
-    public class jiggleBone : MonoBehaviour
+    public class JiggleBone : MonoBehaviour
     {
         public bool debugMode = true;
 
