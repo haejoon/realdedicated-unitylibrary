@@ -6,8 +6,8 @@ namespace RealDedicated_UnityGameLibrary
     {
         public static Vector2 random(this Vector2 vector2)
         {
-            float randX = Random.Range(0, 1);
-            float randY = Random.Range(0, 1);
+            float randX = Random.Range(-1, 1);
+            float randY = Random.Range(-1, 1);
 
             return new Vector2(randX, randY);
         }
@@ -22,9 +22,9 @@ namespace RealDedicated_UnityGameLibrary
 
         public static Vector3 random(this Vector3 vector3)
         {
-            float randX = Random.Range(0, 1);
-            float randY = Random.Range(0, 1);
-            float randZ = Random.Range(0, 1);
+            float randX = Random.Range(-1, 1);
+            float randY = Random.Range(-1, 1);
+            float randZ = Random.Range(-1, 1);
 
             return new Vector3(randX, randY, randZ);
         }
