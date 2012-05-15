@@ -6,6 +6,10 @@ namespace RealDedicated_UnityGameLibrary
     public class GUI_PageDisplay : MonoBehaviour
     {
         #region Members
+        public enum DisplayType { ButtonToggle, VisibleOnAwake }
+
+        public DisplayType myDisplayType = DisplayType.VisibleOnAwake;
+
         [UnityEngine.SerializeField]
         private string pageDisplayToggleButton = "Escape";
         
@@ -61,6 +65,9 @@ namespace RealDedicated_UnityGameLibrary
         #region Methods
         public void Awake()
         {
+            if (this.myDisplayType == DisplayType.VisibleOnAwake)
+                this.ToggleGUIPageDisplay(true);
+
             if (this.PagesToDisplay.Count > 0)
             {
                 this.CurrentPage = this.PagesToDisplay[0];
