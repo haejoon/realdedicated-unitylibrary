@@ -6,7 +6,7 @@ namespace RealDedicated_UnityGameLibrary
     public class GUI_PageDisplay : MonoBehaviour
     {
         #region Members
-        public enum DisplayType { ButtonToggle, VisibleOnAwake }
+        public enum DisplayType { ButtonToggle, VisibleOnAwake, VisibleOnAwakeWithToggle }
 
         public DisplayType myDisplayType = DisplayType.VisibleOnAwake;
 
@@ -68,6 +68,7 @@ namespace RealDedicated_UnityGameLibrary
             if (this.myDisplayType == DisplayType.VisibleOnAwake)
                 this.ToggleGUIPageDisplay(true);
 
+
             if (this.PagesToDisplay.Count > 0)
             {
                 this.CurrentPage = this.PagesToDisplay[0];
@@ -92,9 +93,12 @@ namespace RealDedicated_UnityGameLibrary
 
         private void CheckForInput()
         {
-            if (Input.GetButtonDown(this.PageDisplayToggleButton))
+            if (this.myDisplayType != DisplayType.VisibleOnAwake)
             {
-                this.DisplayingPages = !this.DisplayingPages;
+                if (Input.GetButtonDown(this.PageDisplayToggleButton))
+                {
+                    this.DisplayingPages = !this.DisplayingPages;
+                }
             }
         }
 
