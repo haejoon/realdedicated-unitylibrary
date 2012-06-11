@@ -28,7 +28,7 @@ namespace RealDedicated_UnityGameLibrary
 
         private void DetermineOffsetSize()
         {
-            rowSize = (int)this.atlasToSplit.texelSize.x / (int)this.textureSize;
+            rowSize = (int)this.atlasToSplit.width / (int)this.textureSize;
 
             this.offsetSize = (float)1 / (float)rowSize;
             Debug.Log(string.Format("RowSize {0}. Offsetsize {1}", rowSize, offsetSize));
@@ -66,11 +66,15 @@ namespace RealDedicated_UnityGameLibrary
                 {
                     int currentRow = i / this.rowSize;
                     tempOffset.x = this.offsetSize * (i - (currentRow * rowSize));
+
+                    Debug.Log(string.Format("CurrentRow {0}. i {1}", currentRow, i));
                 }
 
                 for (int j = 0; j < this.rowSize; j++)
                 {
                     tempOffset.y = this.offsetSize * j;
+
+                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", i, tempOffset.x, tempOffset.y));
 
                     offsets[i] = tempOffset;
                 }
