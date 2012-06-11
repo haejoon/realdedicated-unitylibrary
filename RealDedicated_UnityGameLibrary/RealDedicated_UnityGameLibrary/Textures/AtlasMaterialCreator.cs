@@ -69,7 +69,7 @@ namespace RealDedicated_UnityGameLibrary
                 {
                     tempOffset.y = this.offsetSize * j;
 
-                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", i, tempOffset.x, tempOffset.y));
+                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", (i + j), tempOffset.x, tempOffset.y));
 
                     offsets[i + j] = tempOffset;
                 }
