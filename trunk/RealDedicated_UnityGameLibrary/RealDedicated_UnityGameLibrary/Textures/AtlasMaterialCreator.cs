@@ -62,8 +62,7 @@ namespace RealDedicated_UnityGameLibrary
             Vector2 tempOffset = Vector2.zero;
             for (int i = 0; i < this.rowSize; i++)
             {
-                if (i < this.rowSize)
-                    tempOffset.x = this.offsetSize * i;
+                tempOffset.x = this.offsetSize * i;
 
                 for (int j = 0; j < this.rowSize; j++)
                 {
