@@ -8,7 +8,6 @@ namespace RealDedicated_UnityGameLibrary
         public Texture2D atlasToSplit;
         public int textureSize = 256;
         public Material baseMaterial;
-        public Dictionary<int, Material> atlasedMaterialsDictionary = new Dictionary<int, Material>();
         public List<Material> exposedMaterials = new List<Material>();
 
         private float offsetSize = 0;
@@ -41,7 +40,7 @@ namespace RealDedicated_UnityGameLibrary
             {
                 Material tempMat = new Material(this.baseMaterial);
                 tempMat.mainTextureScale = new Vector2(this.offsetSize, this.offsetSize);
-                this.atlasedMaterialsDictionary.Add(i, tempMat);
+                this.exposedMaterials.Add(tempMat);
             }
         }
 
@@ -49,16 +48,16 @@ namespace RealDedicated_UnityGameLibrary
         {
             Vector2[] textureOffsets = this.GetOffsets();
 
-            for(int i = 0; i < this.atlasedMaterialsDictionary.Count;i++)
+            for (int i = 0; i < this.exposedMaterials.Count; i++)
             {
-                this.atlasedMaterialsDictionary[i].mainTextureOffset = textureOffsets[i];
-                this.exposedMaterials.Add(this.atlasedMaterialsDictionary[i]);
+                this.exposedMaterials[i].mainTextureOffset = textureOffsets[i];
+                this.exposedMaterials.Add(this.exposedMaterials[i]);
             }
         }
 
         private Vector2[] GetOffsets()
         {
-            Vector2[] offsets = new Vector2[this.atlasedMaterialsDictionary.Count];
+            Vector2[] offsets = new Vector2[this.exposedMaterials.Count];
             Vector2 tempOffset = Vector2.zero;
             int textureCounter = 0;
             for (int i = 0; i < this.rowSize; i++)
@@ -68,8 +67,6 @@ namespace RealDedicated_UnityGameLibrary
                 for (int j = 0; j < this.rowSize; j++)
                 {
                     tempOffset.y = this.offsetSize * j;
-
-                    //Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", textureCounter, tempOffset.x, tempOffset.y));
 
                     offsets[textureCounter] = tempOffset;
                     textureCounter++;
