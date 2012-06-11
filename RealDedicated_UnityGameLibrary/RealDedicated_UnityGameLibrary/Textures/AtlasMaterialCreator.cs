@@ -9,6 +9,7 @@ namespace RealDedicated_UnityGameLibrary
         public int textureSize = 256;
         public Material baseMaterial;
         public Dictionary<int, Material> atlasedMaterialsDictionary = new Dictionary<int, Material>();
+        public List<Material> exposedMaterials = new List<Material>();
 
         private float offsetSize = 0;
         private int rowSize = 0;
@@ -51,6 +52,7 @@ namespace RealDedicated_UnityGameLibrary
             for(int i = 0; i < this.atlasedMaterialsDictionary.Count;i++)
             {
                 this.atlasedMaterialsDictionary[i].mainTextureOffset = textureOffsets[i];
+                this.exposedMaterials.Add(this.atlasedMaterialsDictionary[i]);
             }
         }
 
@@ -58,17 +60,10 @@ namespace RealDedicated_UnityGameLibrary
         {
             Vector2[] offsets = new Vector2[this.atlasedMaterialsDictionary.Count];
             Vector2 tempOffset = Vector2.zero;
-            for (int i = 0; i < offsets.Length; i++)
+            for (int i = 0; i < this.rowSize; i++)
             {
                 if (i < this.rowSize)
                     tempOffset.x = this.offsetSize * i;
-                else
-                {
-                    int currentRow = i / this.rowSize;
-                    tempOffset.x = this.offsetSize * (i - (currentRow * rowSize));
-
-                    Debug.Log(string.Format("CurrentRow {0}. i {1}", currentRow, i));
-                }
 
                 for (int j = 0; j < this.rowSize; j++)
                 {
