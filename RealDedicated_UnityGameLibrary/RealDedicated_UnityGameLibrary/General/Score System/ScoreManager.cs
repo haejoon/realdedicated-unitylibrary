@@ -77,10 +77,8 @@ namespace RealDedicated_UnityGameLibrary
             if (scoreUpdated != null)
                 scoreUpdated(scoreToChange);
         }
-        #endregion
 
-        #region Events
-        public Score GetScore(string nameOfScore)
+        private Score GetScoreItem(string nameOfScore)
         {
             Score tempScore = null;
 
@@ -98,6 +96,13 @@ namespace RealDedicated_UnityGameLibrary
 
             return tempScore;
         }
+        #endregion
+
+        #region Events
+        public float GetScore(string nameOfScore)
+        {
+            return this.GetScoreItem(nameOfScore).score;
+        }
 
         /// <summary>
         /// Adds a value to a score
@@ -106,7 +111,7 @@ namespace RealDedicated_UnityGameLibrary
         /// <param name="valueToAdd">Point value added</param>
         public void AddToScore(string scoreName, float valueToAdd)
         {
-            this.AddToScoreActual(this.GetScore(scoreName), valueToAdd);
+            this.AddToScoreActual(this.GetScoreItem(scoreName), valueToAdd);
         }
 
         /// <summary>
@@ -116,7 +121,7 @@ namespace RealDedicated_UnityGameLibrary
         /// <param name="valueName">Name of value to add</param>
         public void AddToScore(string scoreName, string valueName)
         {
-            this.AddToScoreActual(this.GetScore(scoreName), ValueMapReference.instance.GetScoreFromValue(valueName));
+            this.AddToScoreActual(this.GetScoreItem(scoreName), ValueMapReference.instance.GetScoreFromValue(valueName));
         }
 
         /// <summary>
@@ -127,10 +132,8 @@ namespace RealDedicated_UnityGameLibrary
         /// <param name="valueName">Name of value to add</param>
         public void AddToScore(string scoreName, string valueMapName, string valueName)
         {
-            this.AddToScoreActual(this.GetScore(scoreName), ValueMapReference.instance.GetScoreFromValue(valueName, valueMapName));
+            this.AddToScoreActual(this.GetScoreItem(scoreName), ValueMapReference.instance.GetScoreFromValue(valueName, valueMapName));
         }
-
-        
         #endregion
     }
 }
