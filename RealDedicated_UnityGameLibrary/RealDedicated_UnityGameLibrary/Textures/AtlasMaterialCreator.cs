@@ -60,6 +60,7 @@ namespace RealDedicated_UnityGameLibrary
         {
             Vector2[] offsets = new Vector2[this.atlasedMaterialsDictionary.Count];
             Vector2 tempOffset = Vector2.zero;
+            int textureCounter = 0;
             for (int i = 0; i < this.rowSize; i++)
             {
                 tempOffset.x = this.offsetSize * i;
@@ -68,9 +69,10 @@ namespace RealDedicated_UnityGameLibrary
                 {
                     tempOffset.y = this.offsetSize * j;
 
-                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", (i + j), tempOffset.x, tempOffset.y));
+                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", textureCounter, tempOffset.x, tempOffset.y));
 
-                    offsets[i + j] = tempOffset;
+                    offsets[textureCounter] = tempOffset;
+                    textureCounter++;
                 }
             }
 
