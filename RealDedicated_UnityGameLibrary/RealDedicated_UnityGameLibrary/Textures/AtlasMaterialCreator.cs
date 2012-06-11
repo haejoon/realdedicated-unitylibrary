@@ -32,7 +32,7 @@ namespace RealDedicated_UnityGameLibrary
             rowSize = (int)this.atlasToSplit.width / (int)this.textureSize;
 
             this.offsetSize = (float)1 / (float)rowSize;
-            Debug.Log(string.Format("RowSize {0}. Offsetsize {1}", rowSize, offsetSize));
+            //Debug.Log(string.Format("RowSize {0}. Offsetsize {1}", rowSize, offsetSize));
         }
 
         private void CreateMaterials()
@@ -69,7 +69,7 @@ namespace RealDedicated_UnityGameLibrary
                 {
                     tempOffset.y = this.offsetSize * j;
 
-                    Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", textureCounter, tempOffset.x, tempOffset.y));
+                    //Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", textureCounter, tempOffset.x, tempOffset.y));
 
                     offsets[textureCounter] = tempOffset;
                     textureCounter++;
