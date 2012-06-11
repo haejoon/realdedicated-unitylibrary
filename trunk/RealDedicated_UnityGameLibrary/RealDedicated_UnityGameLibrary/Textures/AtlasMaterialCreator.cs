@@ -71,7 +71,7 @@ namespace RealDedicated_UnityGameLibrary
 
                     Debug.Log(string.Format("Texture[{0}], OffsetX {1}. OffsetY {2}", i, tempOffset.x, tempOffset.y));
 
-                    offsets[i] = tempOffset;
+                    offsets[i + j] = tempOffset;
                 }
             }
 
