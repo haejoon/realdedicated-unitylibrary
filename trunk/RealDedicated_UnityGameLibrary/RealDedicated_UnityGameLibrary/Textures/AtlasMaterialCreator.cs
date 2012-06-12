@@ -53,7 +53,6 @@ namespace RealDedicated_UnityGameLibrary
             for (int i = 0; i < this.exposedMaterials.Count; i++)
             {
                 this.exposedMaterials[i].mainTextureOffset = textureOffsets[i];
-                this.exposedMaterials.Add(this.exposedMaterials[i]);
             }
         }
 
