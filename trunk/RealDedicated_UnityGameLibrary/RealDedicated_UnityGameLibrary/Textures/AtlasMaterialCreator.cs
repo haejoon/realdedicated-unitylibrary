@@ -5,6 +5,7 @@ namespace RealDedicated_UnityGameLibrary
 {
     public class AtlasMaterialCreator : MonoBehaviour
     {
+        #region Members
         public Texture2D atlasToSplit;
         public int textureSize = 256;
         public Material baseMaterial;
@@ -12,7 +13,9 @@ namespace RealDedicated_UnityGameLibrary
 
         private float offsetSize = 0;
         private int rowSize = 0;
+        #endregion
 
+        #region Methods
         public void Start()
         {
             if(this.baseMaterial != null && this.atlasToSplit != null)
@@ -31,7 +34,6 @@ namespace RealDedicated_UnityGameLibrary
             rowSize = (int)this.atlasToSplit.width / (int)this.textureSize;
 
             this.offsetSize = (float)1 / (float)rowSize;
-            //Debug.Log(string.Format("RowSize {0}. Offsetsize {1}", rowSize, offsetSize));
         }
 
         private void CreateMaterials()
@@ -80,5 +82,6 @@ namespace RealDedicated_UnityGameLibrary
         {
             matToSet.mainTextureOffset = new Vector2(offsetX, offsetY);
         }
+        #endregion
     }
 }
