@@ -31,6 +31,8 @@ namespace RealDedicated_UnityGameLibrary
 
         public List<Material> CreateMaterialsFromAtlas(Texture2D atlasToParse, Material newBaseMaterial, int newTextureSize)
         {
+            newBaseMaterial.mainTexture = atlasToParse;
+
             List<Material> tempMats = new List<Material>();
 
             int tempRowSize = (int)atlasToParse.width / (int)newTextureSize;
