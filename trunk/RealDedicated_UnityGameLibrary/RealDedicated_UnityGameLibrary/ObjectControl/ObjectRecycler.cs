@@ -19,16 +19,15 @@ namespace RealDedicated_UnityGameLibrary
         {
             this.objectList = new List<GameObject>(totalObjectsAtStart);
             
-            this.objectToRecycle = GameObject.Instantiate(go) as GameObject;
+            this.objectToRecycle = go;
 
             for (int i = 0; i < totalObjectsAtStart; i++)
-            {
+            {				
                 //Create a new instance
                 GameObject newObject = Object.Instantiate(go) as GameObject;
                 //Deactivate the object
-                newObject.gameObject.active = false;
-
-                newObject.gameObject.SetActiveRecursively(false);
+				newObject.SetActive(false);				
+				
                 //Store the object for later use
                 this.objectList.Add(newObject);
             }
@@ -39,7 +38,7 @@ namespace RealDedicated_UnityGameLibrary
             if (onObjectRecyclerChanged != null)
             {
                 var allFreeObjects = from item in this.objectList
-                                     where item.active == false
+                                     where item.activeSelf == false
                                      select item;
 
                 onObjectRecyclerChanged(allFreeObjects.Count(), this.objectList.Count);
@@ -54,7 +53,7 @@ namespace RealDedicated_UnityGameLibrary
             get
             {
                 var freeObject = (from item in this.objectList
-                                  where item.active == false
+                                  where item.activeSelf == false
                                   select item).FirstOrDefault();
 
                 if (freeObject == null)
@@ -63,8 +62,7 @@ namespace RealDedicated_UnityGameLibrary
                     objectList.Add(freeObject);
                 }
 
-                freeObject.active = true;
-                freeObject.SetActiveRecursively(true);
+				freeObject.SetActive(true);
 
                 fireRecycledEvent();
 
@@ -75,8 +73,7 @@ namespace RealDedicated_UnityGameLibrary
         //Must be called by any object that wants to be reused
         public void freeObject(GameObject objectToFree)
         {
-            objectToFree.gameObject.active = false;
-            objectToFree.gameObject.SetActiveRecursively(false);
+            objectToFree.gameObject.SetActive(false);
 
             fireRecycledEvent();
         }

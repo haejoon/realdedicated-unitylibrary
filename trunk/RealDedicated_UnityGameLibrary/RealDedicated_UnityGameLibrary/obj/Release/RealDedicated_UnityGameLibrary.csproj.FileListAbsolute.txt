@@ -1,0 +1,5 @@
+E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Release\RealDedicated_UnityGameLibrary.dll
+E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Release\RealDedicated_UnityGameLibrary.pdb
+E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Release\UnityEngine.dll
+E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Release\RealDedicated_UnityGameLibrary.dll
+E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Release\RealDedicated_UnityGameLibrary.pdb
