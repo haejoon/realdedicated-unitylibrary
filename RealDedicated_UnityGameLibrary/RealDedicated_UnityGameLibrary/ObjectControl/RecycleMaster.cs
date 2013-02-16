@@ -39,6 +39,11 @@ namespace RealDedicated_UnityGameLibrary
     #endregion
 	
 	#region Methods
+    public void Awake()
+    {
+        Object.DontDestroyOnLoad(this.gameObject);
+    }
+
 	private bool IsRecycleable(GameObject goToCheck)
 	{
 		RecyclableObject ro = goToCheck.GetComponent<RecyclableObject>();
