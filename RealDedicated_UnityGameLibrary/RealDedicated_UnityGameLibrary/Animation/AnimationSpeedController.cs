@@ -11,15 +11,33 @@ namespace RealDedicated_UnityGameLibrary
 
         private void Start()
         {
-            if (this.animation.clip != null)
+            if (this.animation != null)
             {
-                if (!this.usingRandomSpeed)
-                    this.animation[this.animation.clip.name].speed = this.animationSpeed;
-                else
-                    this.animation[this.animation.clip.name].speed = Random.Range(randomSpeedRange.x, randomSpeedRange.y);
-
-                this.RemoveThisComponent();
+                this.SetSpeedOfClips();
             }
+
+            this.RemoveThisComponent();
+        }
+
+        private void SetSpeedOfClips()
+        {
+            foreach (AnimationState state in animation)
+            {
+                if (this.usingRandomSpeed)
+                    this.SetSpeedActual(state, this.GetRandomSpeed());
+                else
+                    this.SetSpeedActual(state, this.animationSpeed);
+            }
+        }
+
+        private void SetSpeedActual(AnimationState clipToSet, float speedToUse)
+        {
+            clipToSet.speed = speedToUse;
+        }
+
+        private float GetRandomSpeed()
+        {
+            return Random.Range(randomSpeedRange.x, randomSpeedRange.y);
         }
 
         private void RemoveThisComponent()
