@@ -26,7 +26,9 @@ namespace RealDedicated_UnityGameLibrary
                 //Create a new instance
                 GameObject newObject = Object.Instantiate(go) as GameObject;
                 //Deactivate the object
-				newObject.SetActive(false);				
+				//newObject.SetActive(false);
+                newObject.active = false;
+                newObject.SetActiveRecursively(false);
 				
                 //Store the object for later use
                 this.objectList.Add(newObject);
@@ -38,7 +40,7 @@ namespace RealDedicated_UnityGameLibrary
             if (onObjectRecyclerChanged != null)
             {
                 var allFreeObjects = from item in this.objectList
-                                     where item.activeSelf == false
+                                     where item.active == false
                                      select item;
 
                 onObjectRecyclerChanged(allFreeObjects.Count(), this.objectList.Count);
@@ -53,7 +55,7 @@ namespace RealDedicated_UnityGameLibrary
             get
             {
                 var freeObject = (from item in this.objectList
-                                  where item.activeSelf == false
+                                  where item.active == false
                                   select item).FirstOrDefault();
 
                 if (freeObject == null)
@@ -62,7 +64,8 @@ namespace RealDedicated_UnityGameLibrary
                     objectList.Add(freeObject);
                 }
 
-				freeObject.SetActive(true);
+                freeObject.active = true;
+                freeObject.SetActiveRecursively(true);
 
                 fireRecycledEvent();
 
@@ -73,7 +76,8 @@ namespace RealDedicated_UnityGameLibrary
         //Must be called by any object that wants to be reused
         public void freeObject(GameObject objectToFree)
         {
-            objectToFree.gameObject.SetActive(false);
+            objectToFree.active = false;
+            objectToFree.SetActiveRecursively(false);
 
             fireRecycledEvent();
         }

@@ -12,3 +12,9 @@ E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\Rea
 E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.dll
 E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.pdb
 E:\Google Drive\Game Dev Backup\SHARED\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\UnityEngine.dll
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\RealDedicated_UnityGameLibrary.dll
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\RealDedicated_UnityGameLibrary.pdb
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\bin\Debug\UnityEngine.dll
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.csprojResolveAssemblyReference.cache
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.dll
+E:\Development\Game Dev\Unity Assets\_Real Dedicated Assets\RD_Code\RD_UGL\RealDedicated_UnityGameLibrary\RealDedicated_UnityGameLibrary\obj\Debug\RealDedicated_UnityGameLibrary.pdb
